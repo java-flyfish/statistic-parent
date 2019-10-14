@@ -1,0 +1,54 @@
+#spring配置
+spring:
+  aop:
+    proxy-target-class: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid数据库配置
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 200
+      max-wait: 3000
+      #是否自动提交
+      default-auto-commit: true
+      #从连接池中获取连接前是否运行validationQuery
+      validation-query: select 1
+      test-while-idle: true
+      test-on-borrow: true
+      test-on-return: true
+      #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 3600000
+      #配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 18000000
+      #是否开启statement cache
+      pool-prepared-statements: false
+      max-open-prepared-statements: -1
+      #回收被遗弃的（一般是忘了释放的）数据库连接到连接池中
+      remove-abandoned: true
+      #数据库连接过多长时间不用将被视为被遗弃而收回连接池中
+      remove-abandoned-timeout: 300
+      #将被遗弃的数据库连接的回收记入日志
+      log-abandoned: true
+      filter:
+        stat:
+          #慢SQL记录
+          log-slow-sql: true
+          slow-sql-millis: 5000
+          #合并sql
+          merge-sql: true
+      #设置druid监控页面的用户名和密码
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+      #合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+
+#mybatis配置
+mybatis:
+  configuration:
+    mapper-locations: classpath:com.woolen.coupon.mapper/*.xml
+    #模型所在的保命
+    type-aliases-package: com.woolen.coupon.bean
+server:
+  port: 9090

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.9.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.woollen</groupId>
+	<artifactId>statistic-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>statistic-parent</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+
+		<baomidou.version>3.1.0</baomidou.version>
+		<druid.starter.version>1.1.10</druid.starter.version>
+		<mybatisplus.generator.version>3.1.0</mybatisplus.generator.version>
+		<jedis.version>2.9.0</jedis.version>
+		<pagehelper.version>1.2.3</pagehelper.version>
+		<commons.version>3.9</commons.version>
+		<rocketmq.version>4.4.0</rocketmq.version>
+	</properties>
+	<modules>
+		<module>statistic-dao</module>
+		<module>statistic-service</module>
+		<module>statistic-controller</module>
+	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!--maven多环境配置begin-->
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profile.active>dev</profile.active>
+				<env>application-dev.properties</env>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<profile.active>test</profile.active>
+				<env>application-test.properties</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profile.active>prod</profile.active>
+				<env>application-prod.properties</env>
+			</properties>
+		</profile>
+	</profiles>
+	<!--maven多环境配置end-->
+
+	<build>
+		<!--maven多环境配置文件位置begin-->
+		<!--<filters>
+			<filter>${basedir}/src/main/resources/maven_build/${env}</filter>
+		</filters>-->
+		<resources>
+			<resource>
+				<!-- 编译发布时连同非java文件一同发布 -->
+				<directory>${basedir}/src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<!--maven多环境配置文件位置end-->
+	</build>
+</project>
