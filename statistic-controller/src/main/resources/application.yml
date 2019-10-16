@@ -51,4 +51,4 @@ mybatis:
     #模型所在的保命
     type-aliases-package: com.woolen.coupon.bean
 server:
-  port: 9090
+  port: 9091

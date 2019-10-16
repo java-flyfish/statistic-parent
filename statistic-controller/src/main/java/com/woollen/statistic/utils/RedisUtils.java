@@ -8,6 +8,9 @@ package com.woollen.statistic.utils;
  * @Version: V1.0
  **/
 public class RedisUtils {
-    public static String redis_phone_code = "redis_phone_code:";
-    public static String redis_phone_token = "redis_phone_token:";
+    public static String redis_pv_prefix = "redis_pv_prefix:";
+    public static String redis_uv_topic = "redis_uv_topic";
+
+    //用户今天是否活跃前缀
+    public static String redis_uv_prefix = "redis_uv_prefix:";
 }

@@ -53,7 +53,7 @@ public class MysqlGenerator {
 
         // TODO 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://192.168.3.27:3306/woollen?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true");
+        dsc.setUrl("jdbc:mysql://10.0.4.95:3306/woollen?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -109,7 +109,7 @@ public class MysqlGenerator {
         // 设置逻辑删除键
         strategy.setLogicDeleteFieldName("deleted");
         // TODO 指定生成的bean的数据库表名
-        strategy.setInclude("order_info","pay_order","refund_order");
+        strategy.setInclude("user");
         //strategy.setSuperEntityColumns("id");
         // 驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);

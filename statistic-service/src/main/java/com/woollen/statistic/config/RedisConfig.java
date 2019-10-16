@@ -1,4 +1,4 @@
-package com.woollen.statistic.service.config;
+package com.woollen.statistic.config;
 
 import com.alibaba.fastjson.JSONArray;
 import org.springframework.beans.factory.annotation.Value;
